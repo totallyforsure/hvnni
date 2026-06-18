@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HVNNI — Dressed for Another Dimension</title>
+<meta name="description" content="Dressed for another dimension. HVNNI is a t-shirt label for ethereal ones.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --lilac:      #cdbfe8;
+  --lilac-l:    #e8e0f5;
+  --steel:      #7a92a8;
+  --steel-l:    #b8cad8;
+  --steel-ll:   #dce6ee;
+  --pink:       #e8b4cc;
+  --pink-l:     #f5dce8;
+  --silver:     #c8ccd8;
+  --silver-l:   #e8eaf2;
+  --silver-ll:  #f4f5f8;
+  --white:      #fdfcff;
+  --ink:        #1e1c2a;
+
+  --grad-opal:  linear-gradient(135deg, #e8e0f5 0%, #dce6ee 35%, #f5dce8 65%, #e8eaf2 100%);
+  --grad-shine: linear-gradient(120deg, #cdbfe8, #7a92a8, #c8ccd8, #e8b4cc, #cdbfe8);
+  --grad-silver: linear-gradient(120deg, #c8ccd8, #e8eaf2, #b8cad8, #dce6ee, #c8ccd8);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: var(--white);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NOISE TEXTURE ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.4;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+.orb-1 { width: 650px; height: 650px; background: radial-gradient(circle, rgba(205,191,232,0.4), transparent 70%); top: -15%; left: -18%; }
+.orb-2 { width: 520px; height: 520px; background: radial-gradient(circle, rgba(122,146,168,0.22), transparent 70%); top: 15%; right: -12%; }
+.orb-3 { width: 420px; height: 420px; background: radial-gradient(circle, rgba(232,180,204,0.28), transparent 70%); bottom: -5%; left: 28%; }
+.orb-4 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(200,204,216,0.35), transparent 70%); top: 40%; left: 10%; }
+
+.hero-inner { position: relative; z-index: 1; }
+
+.hero-eyebrow {
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--steel);
+  margin-bottom: 1.25rem;
+}
+
+.brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(5.5rem, 20vw, 13rem);
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  line-height: 0.9;
+  margin-bottom: 0.25em;
+  background: var(--grad-shine);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 8s ease infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.1rem, 2.8vw, 1.5rem);
+  font-weight: 300;
+  font-style: italic;
+  color: #6a6480;
+  letter-spacing: 0.1em;
+  margin-bottom: 2.5rem;
+}
+
+.hero-pills {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2.75rem;
+}
+
+.pill {
+  font-size: 0.62rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.45em 1.25em;
+  border-radius: 100px;
+  border: 1px solid;
+}
+
+.pill-lilac  { border-color: var(--lilac);   color: #7a6aaa; background: rgba(205,191,232,0.1); }
+.pill-steel  { border-color: var(--steel-l); color: var(--steel); background: rgba(122,146,168,0.08); }
+.pill-silver { border-color: var(--silver);  color: #7a7e90; background: rgba(200,204,216,0.1); }
+
+.hero-cta {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1em 2.8em;
+  border-radius: 100px;
+  background: var(--grad-shine);
+  background-size: 400% 400%;
+  animation: shimmer 8s ease infinite;
+  color: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 24px rgba(200,204,216,0.5);
+}
+.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(122,146,168,0.35); }
+
+/* ── SILVER RULE ── */
+.silver-rule {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--silver), var(--lilac), var(--steel-l), var(--silver), transparent);
+  opacity: 0.7;
+}
+
+/* ── MARQUEE ── */
+.marquee-wrap {
+  overflow: hidden;
+  border-top: 1px solid rgba(200,204,216,0.35);
+  border-bottom: 1px solid rgba(200,204,216,0.35);
+  background: linear-gradient(to right, rgba(205,191,232,0.05), rgba(200,204,216,0.08), rgba(122,146,168,0.05));
+  padding: 0.85rem 0;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: inline-flex;
+  animation: marquee 26s linear infinite;
+}
+
+.marquee-track span {
+  font-size: 0.62rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #8a8aa8;
+  padding: 0 2.5rem;
+}
+
+.marquee-track .dot {
+  background: var(--grad-silver);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s ease infinite;
+  padding: 0;
+  letter-spacing: 0;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── PRODUCTS ── */
+.products-section {
+  padding: 6rem 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.section-left h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.section-left h2 em {
+  font-style: italic;
+  background: var(--grad-shine);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 8s ease infinite;
+}
+
+.section-left p {
+  font-size: 0.8rem;
+  color: var(--steel);
+  letter-spacing: 0.06em;
+  margin-top: 0.5rem;
+}
+
+/* ── PRODUCT GRID ── */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.product-card {
+  border-radius: 20px;
+  background: var(--white);
+  border: 1px solid rgba(200,204,216,0.3);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+/* opal border on hover */
+.product-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 1px;
+  background: var(--grad-opal);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.product-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(200,204,216,0.3); }
+.product-card:hover::before { opacity: 1; }
+
+.product-image-wrap {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ede7f6, #dce6ee, #f0e4ee);
+  position: relative;
+}
+
+.product-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.product-card:hover .product-image-wrap img { transform: scale(1.06); }
+
+.product-image-placeholder {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: linear-gradient(135deg, #ede7f6 0%, #dce6ee 50%, #f0e4ee 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image-placeholder svg {
+  width: 56px;
+  height: 56px;
+  opacity: 0.3;
+}
+
+.product-body {
+  padding: 1.4rem 1.5rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.5rem;
+}
+
+.product-type {
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+.product-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.45rem;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.product-desc {
+  font-size: 0.8rem;
+  color: #8a8298;
+  line-height: 1.65;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(200,204,216,0.25);
+}
+
+.product-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.shop-btn {
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.65em 1.4em;
+  border-radius: 100px;
+  background: var(--grad-shine);
+  background-size: 400% 400%;
+  animation: shimmer 8s ease infinite;
+  color: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 14px rgba(200,204,216,0.4);
+  white-space: nowrap;
+}
+.shop-btn:hover { transform: scale(1.04); box-shadow: 0 4px 20px rgba(122,146,168,0.3); }
+
+/* loading / error */
+.products-loading {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 5rem 2rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--silver);
+  letter-spacing: 0.1em;
+}
+
+.products-error {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem;
+  font-size: 0.82rem;
+  color: var(--steel-l);
+  letter-spacing: 0.04em;
+}
+
+/* ── ABOUT STRIP ── */
+.about-strip {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg,
+    rgba(205,191,232,0.07) 0%,
+    rgba(200,204,216,0.1)  40%,
+    rgba(122,146,168,0.06) 70%,
+    rgba(232,180,204,0.06) 100%);
+  border-top: 1px solid rgba(200,204,216,0.25);
+  border-bottom: 1px solid rgba(200,204,216,0.25);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* silver shimmer line at top */
+.about-strip::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--silver), var(--lilac), var(--steel-l), var(--silver), transparent);
+}
+
+.about-strip blockquote {
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+  font-weight: 300;
+  font-style: italic;
+  color: #5c5470;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+}
+
+.about-strip cite {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--steel);
+  margin-top: 1.75rem;
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 2.5rem 2rem;
+  border-top: 1px solid rgba(200,204,216,0.2);
+  text-align: center;
+  background: linear-gradient(to bottom, transparent, rgba(200,204,216,0.04));
+}
+
+.footer-inner {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 300;
+  letter-spacing: 0.35em;
+  background: var(--grad-silver);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 6s ease infinite;
+}
+
+footer p {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--steel-l);
+}
+
+footer a { color: var(--steel); text-decoration: none; }
+footer a:hover { color: var(--lilac); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .product-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+  .product-body { padding: 1rem 1rem 1.2rem; }
+  .products-section { padding: 4rem 1.25rem; }
+  .section-head { flex-direction: column; align-items: flex-start; }
+}
+
+@media (min-width: 900px) {
+  .product-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1200px) {
+  .product-grid { grid-template-columns: repeat(4, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="orb hero-orb orb-1"></div>
+  <div class="orb hero-orb orb-2"></div>
+  <div class="orb hero-orb orb-3"></div>
+  <div class="orb hero-orb orb-4"></div>
+
+  <div class="hero-inner">
+    <p class="hero-eyebrow">HVNNI</p>
+    <div class="brand">HVNNI</div>
+    <p class="tagline">Dressed for another dimension.</p>
+
+    <div class="hero-pills">
+      <span class="pill pill-lilac">Limited Drops</span>
+      <span class="pill pill-steel">Ethereal Fits</span>
+      <span class="pill pill-silver">Y2K &amp; Beyond</span>
+    </div>
+
+    <a href="#collection" class="hero-cta">Shop Now</a>
+  </div>
+</header>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Dressed for Another Dimension</span><span class="dot">✦</span>
+    <span>HVNNI</span><span class="dot">✦</span>
+    <span>Ethereal Fits</span><span class="dot">✦</span>
+    <span>Limited Drops</span><span class="dot">✦</span>
+    <span>HVNNI</span><span class="dot">✦</span>
+    <!-- duplicate for seamless loop -->
+    <span>Dressed for Another Dimension</span><span class="dot">✦</span>
+    <span>HVNNI</span><span class="dot">✦</span>
+    <span>Ethereal Fits</span><span class="dot">✦</span>
+    <span>Limited Drops</span><span class="dot">✦</span>
+    <span>HVNNI</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="collection">
+  <div class="section-head">
+    <div class="section-left">
+      <h2>The <em>Collection</em></h2>
+      <p>Every piece is made to order</p>
+    </div>
+  </div>
+
+  <div class="product-grid" id="productGrid">
+    <div class="products-loading">Loading the drop&hellip;</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div class="about-strip">
+  <blockquote>
+    I made this for myself. Maybe you will like it.
+  </blockquote>
+  <cite>— Frances, HVNNI</cite>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">HVNNI</div>
+    <p>&copy; 2026 &nbsp;·&nbsp; All Rights Reserved</p>
+    <p>Questions? <a href="mailto:hvnni2020@gmail.com">hvnni2020@gmail.com</a></p>
+  </div>
+</footer>
+
+<script>
+const TOKEN = 'ptkn_2134aee1-855b-40ec-838b-6ea2273b4665';
+const API_BASE = 'https://storefront-api.fourthwall.com/v1';
+const SHOP_BASE = 'https://hvnni-shop.fourthwall.com';
+
+function formatPrice(product) {
+  const v = product.variants?.[0]?.unitPrice?.value;
+  if (v != null) return '$' + parseFloat(v).toFixed(0);
+  return '';
+}
+
+function productSlug(product) {
+  return product.slug || product.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+}
+
+function placeholderSvg() {
+  return `<div class="product-image-placeholder">
+    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 12 L12 20 L12 52 L52 52 L52 20 L44 12 Z" stroke="#c8ccd8" stroke-width="1.5" fill="none"/>
+      <path d="M20 12 Q32 8 44 12" stroke="#cdbfe8" stroke-width="1.5" fill="none"/>
+      <circle cx="32" cy="30" r="6" stroke="#b8cad8" stroke-width="1"/>
+    </svg>
+  </div>`;
+}
+
+function renderCard(product) {
+  const price = formatPrice(product);
+  const imageUrl = product.images?.[0]?.url || null;
+  const imageHtml = imageUrl
+    ? `<div class="product-image-wrap"><img src="${imageUrl}" alt="${product.name}" loading="lazy"></div>`
+    : placeholderSvg();
+  const type = product.type || product.productType || '';
+  const desc = (product.description || '').replace(/<[^>]*>/g, '').trim();
+
+  return `<div class="product-card">
+    ${imageHtml}
+    <div class="product-body">
+      ${type ? `<span class="product-type">${type}</span>` : ''}
+      <h3 class="product-name">${product.name}</h3>
+      ${desc ? `<p class="product-desc">${desc}</p>` : ''}
+      <div class="product-footer">
+        <span class="product-price">${price}</span>
+        <a class="shop-btn" href="${SHOP_BASE}/products/${productSlug(product)}" target="_blank" rel="noopener">Shop Now</a>
+      </div>
+    </div>
+  </div>`;
+}
+
+async function loadProducts() {
+  const grid = document.getElementById('productGrid');
+  try {
+    const res = await fetch(`${API_BASE}/collections/all/products?storefront_token=${TOKEN}`);
+    if (!res.ok) throw new Error(`API ${res.status}`);
+    const data = await res.json();
+    const products = data.results || [];
+    if (!products.length) throw new Error('empty');
+    grid.innerHTML = products.map(renderCard).join('');
+  } catch (err) {
+    console.info('Fourthwall API error:', err.message);
+    grid.innerHTML = `<div class="products-error">Check back soon — new things are on the way.</div>`;
+  }
+}
+
+loadProducts();
+</script>
+
+</body>
+</html>
